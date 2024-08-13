@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - ECO Harvest</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 28px;
+        }
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .nav-bar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        .nav-bar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .profile-header p {
+            color: #666;
+        }
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .profile-section {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .profile-section:last-child {
+            border-bottom: none;
+        }
+        .profile-section h2 {
+            font-size: 20px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        .profile-section p {
+            margin: 5px 0;
+        }
+        .profile-section input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .edit-profile {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .edit-profile button {
+            background: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .edit-profile button:hover {
+            background: #003366;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ECO <b style="color: #FFD700;">Harvest</b></div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>MR J</h1>
+            <p>Member since January 2023</p>
+        </div>
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>Contact Information</h2>
+                <p>Email: <span class="profile-info" id="email">joseph@gmail.com</span><input class="profile-input" id="email-input" type="email" value="johndoe@example.com" style="display:none;"></p>
+                <p>Phone: <span class="profile-info" id="phone">0776535366</span><input class="profile-input" id="phone-input" type="tel" value="(+00) 1234 567 890" style="display:none;"></p>
+            </div>
+            <div class="profile-section">
+                <h2>Donation History</h2>
+                <p>February 2024: 20 meals donated</p>
+                <p>March 2024: 15 meals donated</p>
+                <p>April 2024: 30 meals donated</p>
+            </div>
+            <div class="profile-section">
+                <h2>Preferences</h2>
+                <p>Preferred Contact Method: <span class="profile-info" id="contact-method">Email</span>
+                   <select class="profile-input" id="contact-method-input" style="display:none;">
+                       <option value="Email" selected>Email</option>
+                       <option value="Phone">Phone</option>
+                   </select>
+                </p>
+                <p>Notifications: <span class="profile-info" id="notifications">Enabled</span>
+                   <select class="profile-input" id="notifications-input" style="display:none;">
+                       <option value="Enabled" selected>Enabled</option>
+                       <option value="Disabled">Disabled</option>
+                   </select>
+                </p>
+            </div>
+            <div class="edit-profile">
+                <button id="edit-button">Edit Profile</button>
+                <button id="save-button" style="display:none;">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('edit-button').addEventListener('click', function() {
+            var profileInfo = document.querySelectorAll('.profile-info');
+            var profileInputs = document.querySelectorAll('.profile-input');
+            profileInfo.forEach(function(info) {
+                info.style.display = 'none';
+            });
+            profileInputs.forEach(function(input) {
+                input.style.display = 'block';
+            });
+            document.getElementById('edit-button').style.display = 'none';
+            document.getElementById('save-button').style.display = 'inline-block';
+        });
+
+        document.getElementById('save-button').addEventListener('click', function() {
+            var email = document.getElementById('email-input').value;
+            var phone = document.getElementById('phone-input').value;
+            var contactMethod = document.getElementById('contact-method-input').value;
+            var notifications = document.getElementById('notifications-input').value;
+
+            document.getElementById('email').textContent = email;
+            document.getElementById('phone').textContent = phone;
+            document.getElementById('contact-method').textContent = contactMethod;
+            document.getElementById('notifications').textContent = notifications;
+
+            var profileInfo = document.querySelectorAll('.profile-info');
+            var profileInputs = document.querySelectorAll('.profile-input');
+            profileInfo.forEach(function(info) {
+                info.style.display = 'inline';
+            });
+            profileInputs.forEach(function(input) {
+                input.style.display = 'none';
+            });
+            document.getElementById('edit-button').style.display = 'inline-block';
+            document.getElementById('save-button').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

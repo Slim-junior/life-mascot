@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Food Donate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #06C167;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-bar ul li {
+            margin-left: 20px;
+        }
+
+        .nav-bar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-bar ul li a.active {
+            border-bottom: 2px solid white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #06C167;
+            color: white;
+        }
+
+        .featured-donations {
+            text-align: center;
+        }
+
+        .featured-donations img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ECO <b style="color: #06C167;">Harvest</b></div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#dashboard" class="active">Dashboard</a></li>
+                <li><a href="#donations">Donations</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="dashboard" class="section">
+            <h1>Dashboard</h1>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Donations</h3>
+                    <p>150</p>
+                </div>
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>50</p>
+                </div>
+                <div class="card">
+                    <h3>Pending Requests</h3>
+                    <p>5</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="donations" class="section">
+            <h1>Donations</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Donor</th>
+                        <th>Food Type</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>Vegetables</td>
+                        <td>10kg</td>
+                        <td>Delivered</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Zambeef</td>
+                        <td>Meat</td>
+                        <td>50kg</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Shoprite</td>
+                        <td>Groceries</td>
+                        <td>100kg</td>
+                        <td>Delivered</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Butcheries</td>
+                        <td>Meat</td>
+                        <td>30kg</td>
+                        <td>In Progress</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="users" class="section">
+            <h1>Users</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>Volunteer</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mark Johnson</td>
+                        <td>mark.johnson@example.com</td>
+                        <td>NGO</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Lisa White</td>
+                        <td>lisa.white@example.com</td>
+                        <td>Donor</td>
+                        <td>Inactive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="featured-donations" class="section">
+            <h1>Featured Donations</h1>
+            <div class="featured-donations">
+                <img src="images/chickenwrap.jpg" alt="Featured Donation">
+            </div>
+        </section>
+
+        <section id="settings" class="section">
+            <h1>Settings</h1>
+            <p>Settings content goes here...</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 ECO Harvest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
